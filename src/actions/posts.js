@@ -1,7 +1,8 @@
-import * as api from "../api";
 //We'll be able to use the functions in ../api/index.js like within getPosts below; api.fetchPosts
+import * as api from "../api";
 
-//Action Creators
+//Components dispatch (trigger) actions and each action has a type and a payload.
+//You'll nodice in the posts.js reducer that both of these action fields are referenced.
 
 export const getPosts = () => async (dispatch) => {
   try {
