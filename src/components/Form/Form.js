@@ -13,7 +13,7 @@ const Form = () => {
   const [postData, setPostData] = useState({
     artist: "",
     title: "",
-    message: "",
+    description: "",
     tags: "",
     selectedFile: "",
   });

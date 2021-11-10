@@ -1,3 +1,5 @@
+import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+
 //We'll be able to use the functions in ../api/index.js like within getPosts below; api.fetchPosts
 import * as api from "../api";
 
@@ -10,7 +12,7 @@ export const getPosts = () => async (dispatch) => {
     //destructuring to {data} is equivalent to response.data
     const { data } = await api.fetchPosts();
     //Payload is where we store all our posts
-    dispatch({ type: "FETCH_ALL", payload: data });
+    dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -18,9 +20,9 @@ export const getPosts = () => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
   try {
-    const { data } = await api.createPost(post);
+    const { data } = await api.newPost(post);
 
-    dispatch({ type: "CREATE", payload: data });
+    dispatch({ type: CREATE, payload: data });
   } catch (error) {
     console.log(error.message);
   }
