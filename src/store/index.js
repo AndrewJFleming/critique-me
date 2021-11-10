@@ -15,6 +15,12 @@ import reducers from "../reducers";
 //
 //If we only had a single reducer, we could pass it in as the first arg...
 //But since we'll have multiple, we combine them in reducers/index.js and pass reducers in instead.
-const store = createStore(reducers, compose(applyMiddleware(thunk)));
+const store = createStore(
+  reducers,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 
 export default store;

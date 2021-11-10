@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
+import { TextField, Button, Typography, Paper } from "@material-ui/core";
 
 import useStyles from "./styles";
 import { createPost } from "../../actions/posts";
 
 const Form = () => {
+  //This form post data is stored in memory
+  //until our creatPost dispatch when it'll be
+  //added to our backend DB and Redux global state
   const [postData, setPostData] = useState({
     artist: "",
     title: "",
@@ -20,6 +23,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //We trigger our createPost action with dispatch
     dispatch(createPost(postData));
   };
 
@@ -42,6 +46,9 @@ const Form = () => {
           value={postData.artist}
           onChange={(e) =>
             setPostData({
+              //We spread the postData obj so that we're only editing the
+              //value of the field associated with this textField and not
+              //overwriting the other fields' values.
               ...postData,
               artist: e.target.value,
             })
@@ -101,6 +108,7 @@ const Form = () => {
           color="primary"
           size="large"
           type="submit"
+          fullWidth
         >
           Submit
         </Button>
@@ -108,6 +116,7 @@ const Form = () => {
           variant="contained"
           color="secondary"
           size="small"
+          fullWidth
           onClick={clear}
         >
           Clear
