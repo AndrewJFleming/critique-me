@@ -1,4 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
+//thunk allows us to make our actions functions async
+//You'll see how I utilized this in ../actions/posts.js
 import thunk from "redux-thunk";
 
 //If you're importing just from the folder, webpack will interpret this as importing from ./reducers/index.js

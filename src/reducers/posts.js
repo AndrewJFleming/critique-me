@@ -1,3 +1,5 @@
+import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+
 /*
 A reducer is a function is responsible for mutating global state in the store. 
 Reducers receive inputs and return state changed based on the action recieved.
@@ -13,10 +15,10 @@ The reducer function must always return a new state obj (eg action.payload for t
 
 export default (posts = [], action) => {
   switch (action.type) {
-    case "FETCH_ALL":
+    case FETCH_ALL:
       return action.payload;
-    case "CREATE":
-      return posts;
+    case CREATE:
+      return [...posts, action.payload];
     default:
       return posts;
   }
