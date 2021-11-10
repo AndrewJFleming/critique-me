@@ -27,7 +27,15 @@ const Form = () => {
     dispatch(createPost(postData));
   };
 
-  const clear = () => {};
+  const clear = () => {
+    setPostData({
+      artist: "",
+      title: "",
+      description: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
   return (
     <Paper className={classes.paper}>
