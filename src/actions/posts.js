@@ -14,7 +14,7 @@ export const getPosts = () => async (dispatch) => {
     //Payload is where we store all our posts
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 
@@ -24,7 +24,7 @@ export const createPost = (post) => async (dispatch) => {
 
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 
@@ -33,6 +33,16 @@ export const updatePost = (id, post) => async (dispatch) => {
     const { data } = await api.updatePost(id, post);
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
+  }
+};
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    //data only required if you're expecting a response so we can ommit 'data'
+    await api.deletePost(id);
+    dispatch({ type: DELETE, payload: id });
+  } catch (error) {
+    console.log(error);
   }
 };

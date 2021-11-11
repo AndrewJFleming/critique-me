@@ -38,9 +38,11 @@ const Form = ({ currentId, setCurrentId }) => {
       //We trigger our createPost action with dispatch
       dispatch(createPost(postData));
     }
+    clear();
   };
 
   const clear = () => {
+    setCurrentId(null);
     setPostData({
       artist: "",
       title: "",
@@ -58,7 +60,9 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">Create Post</Typography>
+        <Typography variant="h6">
+          {currentId ? "Editing " : "Create "}Post
+        </Typography>
         <TextField
           name="artist"
           variant="outlined"
