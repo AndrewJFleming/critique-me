@@ -14,7 +14,7 @@ import {
 import LikeIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import { deletePost } from "../../../actions/posts";
+import { deletePost, likePost } from "../../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
@@ -50,12 +50,16 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="h5" className={classes.title} gutterBottom>
           {post.title}
         </Typography>
-        <Typography variant="body2" gutterBottom>
+        <Typography variant="body2" color="textSecondary" gutterBottom>
           {post.description}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button style={{ color: "primary" }} size="small" onClick={() => {}}>
+        <Button
+          style={{ color: "primary" }}
+          size="small"
+          onClick={() => dispatch(likePost(post._id))}
+        >
           <LikeIcon />
           {post.likeCount}
         </Button>

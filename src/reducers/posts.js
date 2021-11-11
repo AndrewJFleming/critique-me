@@ -1,4 +1,10 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  LIKE,
+} from "../constants/actionTypes";
 
 /*
 A reducer is a function is responsible for mutating global state in the store. 
@@ -19,7 +25,9 @@ export default (posts = [], action) => {
       return action.payload;
     case CREATE:
       return [...posts, action.payload];
+    //Code following stacked cases executes for all of them (UPDATE and LIKE in this case).
     case UPDATE:
+    case LIKE:
       return posts.map((post) =>
         post._id === action.payload._id ? action.payload : post
       );

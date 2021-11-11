@@ -1,4 +1,10 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  LIKE,
+} from "../constants/actionTypes";
 
 //We'll be able to use the functions in ../api/index.js like within getPosts below; api.fetchPosts
 import * as api from "../api";
@@ -42,6 +48,15 @@ export const deletePost = (id) => async (dispatch) => {
     //data only required if you're expecting a response so we can ommit 'data'
     await api.deletePost(id);
     dispatch({ type: DELETE, payload: id });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const likePost = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likePost(id);
+    dispatch({ type: LIKE, payload: data });
   } catch (error) {
     console.log(error);
   }
