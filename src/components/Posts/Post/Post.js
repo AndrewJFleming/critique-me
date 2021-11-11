@@ -60,7 +60,7 @@ const Post = ({ post, setCurrentId }) => {
           size="small"
           onClick={() => dispatch(likePost(post._id))}
         >
-          <LikeIcon />
+          <LikeIcon /> &nbsp;
           {post.likeCount}
         </Button>
         <Button
