@@ -6,7 +6,7 @@ import { getPosts } from "./actions/posts";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import Form from "./components/Form/Form";
 import Posts from "./components/Posts/Posts";
-import logoImg from "./images/maestro.png";
+import NavBar from "./components/NavBar/NavBar";
 import useStyles from "./styles";
 
 const App = () => {
@@ -20,17 +20,7 @@ const App = () => {
 
   return (
     <Container maxwidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
-          CritiqueMe
-        </Typography>
-        <img
-          className={classes.image}
-          src={logoImg}
-          alt="CritiqueMe"
-          height="60"
-        />
-      </AppBar>
+      <NavBar />
       <Grow in>
         <Container>
           <Grid
