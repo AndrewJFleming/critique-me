@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { Container } from "@material-ui/core";
 import NavBar from "./components/NavBar/NavBar";
@@ -9,13 +9,12 @@ import Auth from "./components/Auth/Auth";
 const App = () => {
   return (
     <BrowserRouter>
-      <Container maxwidth="lg">
+      <Container maxWidth="lg">
         <NavBar />
-        <Routes>
+        <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/auth" exact component={Auth} />
-        </Routes>
-        <Home />
+        </Switch>
       </Container>
     </BrowserRouter>
   );
