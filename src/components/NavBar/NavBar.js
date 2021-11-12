@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { userDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
 import logoImg from "../../images/maestro.png";
@@ -8,30 +8,29 @@ import useStyles from "./styles";
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const classes = useStyles();
   //Take note of how we retrieve data from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   const logout = () => {
     try {
-        dispatch({ type: "LOGOUT"});
-  
-        history.push("/");
+      dispatch({ type: "LOGOUT" });
 
-        setUser(null)
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      history.push("/");
+
+      setUser(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //JWT...
   //Trigger page refresh when user state is set to new user login.
-//   useEffect(() => {
-//     const token = user?.token;
-//     setUser(JSON.parse(localStorage.getItem("profile")), []);
-//   });
+  //   useEffect(() => {
+  //     const token = user?.token;
+  //     setUser(JSON.parse(localStorage.getItem("profile")), []);
+  //   });
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
