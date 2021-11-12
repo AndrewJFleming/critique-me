@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
@@ -11,6 +11,13 @@ const NavBar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   console.log(user);
+
+  //Trigger page refresh when user state is set to new user login.
+  useEffect(() => {
+    const token = user?.token;
+    //JWT...
+    setUser(JSON.parse(localStorage.getItem("profile")), []);
+  });
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">

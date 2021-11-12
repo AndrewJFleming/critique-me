@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
 
@@ -19,6 +20,7 @@ const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
   const classes = useStyles();
 
   const handleSubmit = () => {};
@@ -36,6 +38,9 @@ const Auth = () => {
 
     try {
       dispatch({ type: "AUTH", data: { result, token } });
+
+      //After successful dispatch, redirect to homepage.
+      history.pushState("/");
     } catch (error) {
       console.log(error);
     }
