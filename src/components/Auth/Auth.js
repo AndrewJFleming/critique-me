@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
 
+import { AUTH } from "../../constants/actionTypes";
 import {
   Avatar,
   Button,
@@ -37,7 +38,7 @@ const Auth = () => {
     const token = res?.tokenId;
 
     try {
-      dispatch({ type: "AUTH", data: { result, token } });
+      dispatch({ type: AUTH, data: { result, token } });
 
       //After successful dispatch, redirect to homepage.
       history.push("/");

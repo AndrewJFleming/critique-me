@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+import { LOGOUT } from "../../constants/actionTypes";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
 import logoImg from "../../images/maestro.png";
 import useStyles from "./styles";
@@ -15,7 +16,7 @@ const NavBar = () => {
 
   const logout = () => {
     try {
-      dispatch({ type: "LOGOUT" });
+      dispatch({ type: LOGOUT });
 
       history.push("/");
 
