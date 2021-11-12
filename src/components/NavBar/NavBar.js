@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
@@ -7,8 +7,10 @@ import useStyles from "./styles";
 
 const NavBar = () => {
   const classes = useStyles();
+  //Take note of how we retrieve data from local storage
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
-  const user = null;
+  console.log(user);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
