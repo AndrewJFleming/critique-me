@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { LOGOUT } from "../../constants/actionTypes";
@@ -10,6 +10,7 @@ import useStyles from "./styles";
 const NavBar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
   const classes = useStyles();
   //Take note of how we retrieve data from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -26,12 +27,14 @@ const NavBar = () => {
     }
   };
 
-  //JWT...
-  //Trigger page refresh when user state is set to new user login.
-  //   useEffect(() => {
-  //     const token = user?.token;
-  //     setUser(JSON.parse(localStorage.getItem("profile")), []);
-  //   });
+  useEffect(() => {
+    const token = user?.token;
+    //JWT...
+
+    // Trigger refresh when page location changes
+    //(AUTH dispatch in Auth.js triggers page redirect)
+    setUser(JSON.parse(localStorage.getItem("profile")), [location]);
+  });
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
@@ -69,6 +72,7 @@ const NavBar = () => {
               className={classes.logout}
               variant="contained"
               color="secondary"
+              onClick={logout}
             >
               Logout
             </Button>
