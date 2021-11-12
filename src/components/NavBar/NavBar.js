@@ -1,16 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { userDispatch } from "react-redux";
 
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
 import logoImg from "../../images/maestro.png";
 import useStyles from "./styles";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const history = useHistory()
   const classes = useStyles();
   //Take note of how we retrieve data from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
-  console.log(user);
+  const logout = () => {
+    try {
+        dispatch({ type: "LOGOUT"});
+  
+        history.push("/");
+
+        setUser(null)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
 
   //Trigger page refresh when user state is set to new user login.
   useEffect(() => {
