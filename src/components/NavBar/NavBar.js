@@ -26,12 +26,12 @@ const NavBar = () => {
     };
   };
 
+  //JWT...
   //Trigger page refresh when user state is set to new user login.
-  useEffect(() => {
-    const token = user?.token;
-    //JWT...
-    setUser(JSON.parse(localStorage.getItem("profile")), []);
-  });
+//   useEffect(() => {
+//     const token = user?.token;
+//     setUser(JSON.parse(localStorage.getItem("profile")), []);
+//   });
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
