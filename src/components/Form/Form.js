@@ -11,7 +11,6 @@ const Form = ({ currentId, setCurrentId }) => {
   //until our creatPost dispatch when it'll be
   //added to our backend DB and Redux global state
   const [postData, setPostData] = useState({
-    artist: "",
     title: "",
     description: "",
     tags: "",
@@ -22,6 +21,7 @@ const Form = ({ currentId, setCurrentId }) => {
   );
   const classes = useStyles();
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
     if (post) {
@@ -29,22 +29,33 @@ const Form = ({ currentId, setCurrentId }) => {
     }
   }, [post]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (currentId) {
-      dispatch(updatePost(currentId, postData));
+    if (currentId === 0) {
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
+      clear();
     } else {
-      //We trigger our createPost action with dispatch
-      dispatch(createPost(postData));
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.result?.name })
+      );
+      clear();
     }
-    clear();
   };
+
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant="h6" align="center">
+          Please sign in to like posts and to create your own.
+        </Typography>
+      </Paper>
+    );
+  }
 
   const clear = () => {
     setCurrentId(null);
     setPostData({
-      artist: "",
       title: "",
       description: "",
       tags: "",
@@ -64,22 +75,6 @@ const Form = ({ currentId, setCurrentId }) => {
           {currentId ? "Editing " : "Create "}Post
         </Typography>
         <TextField
-          name="artist"
-          variant="outlined"
-          label="Artist"
-          fullWidth
-          value={postData.artist}
-          onChange={(e) =>
-            setPostData({
-              //We spread the postData obj so that we're only editing the
-              //value of the field associated with this textField and not
-              //overwriting the other fields' values.
-              ...postData,
-              artist: e.target.value,
-            })
-          }
-        />
-        <TextField
           name="title"
           variant="outlined"
           label="Title"
@@ -87,6 +82,9 @@ const Form = ({ currentId, setCurrentId }) => {
           value={postData.title}
           onChange={(e) =>
             setPostData({
+              //We spread the postData obj so that we're only editing the
+              //value of the field associated with this textField and not
+              //overwriting the other fields' values.
               ...postData,
               title: e.target.value,
             })
