@@ -1,4 +1,4 @@
-import { AUTH, LOGOUT } from "../constants/actionTypes";
+import { AUTH } from "../constants/actionTypes";
 import * as api from "../api";
 
 export const signin = (formData, history) => async (dispatch) => {
@@ -13,9 +13,7 @@ export const signin = (formData, history) => async (dispatch) => {
 };
 export const signup = (formData, history) => async (dispatch) => {
   try {
-    console.log(formData);
     const { data } = await api.signUp(formData);
-    console.log(data);
     dispatch({ type: AUTH, data });
 
     history.push("/");

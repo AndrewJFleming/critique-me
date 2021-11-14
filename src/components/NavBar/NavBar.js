@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import decode from "jwt-decode";
 
 import { LOGOUT } from "../../constants/actionTypes";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
@@ -29,12 +30,17 @@ const NavBar = () => {
 
   useEffect(() => {
     const token = user?.token;
-    //JWT...
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
 
     // Trigger refresh when page location changes
     //(AUTH dispatch in Auth.js triggers page redirect)
-    setUser(JSON.parse(localStorage.getItem("profile")), [location]);
-  });
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
