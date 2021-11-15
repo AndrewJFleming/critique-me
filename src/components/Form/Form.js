@@ -3,8 +3,8 @@ import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 
-import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts";
+import useStyles from "./styles";
 
 const Form = ({ currentId, setCurrentId }) => {
   //This form post data is stored in memory
@@ -19,20 +19,19 @@ const Form = ({ currentId, setCurrentId }) => {
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
-  const classes = useStyles();
   const dispatch = useDispatch();
+  const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
-    if (post) {
-      setPostData(post);
-    }
+    if (post) setPostData(post);
   }, [post]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (currentId === 0) {
+    // if (currentId === 0) {
+    if (!currentId) {
       dispatch(createPost({ ...postData, name: user?.result?.name }));
       clear();
     } else {
