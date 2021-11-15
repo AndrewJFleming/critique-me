@@ -96,13 +96,16 @@ const Post = ({ post, setCurrentId }) => {
         >
           <Likes />
         </Button>
-        <Button
-          style={{ color: "danger" }}
-          size="small"
-          onClick={() => dispatch(deletePost(post._id))}
-        >
-          <DeleteIcon />
-        </Button>
+        {(user?.result?.googleId === post?.creator ||
+          user?.result?._id === post?.creator) && (
+          <Button
+            style={{ color: "danger" }}
+            size="small"
+            onClick={() => dispatch(deletePost(post._id))}
+          >
+            <DeleteIcon />
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
