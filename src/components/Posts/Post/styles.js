@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: "56.25%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0)",
     backgroundBlendMode: "darken",
   },
   fullHeightCard: {
@@ -19,21 +19,17 @@ export default makeStyles((theme) => ({
     position: "relative",
     backgroundColor: "#f4fbf9",
     border: "2px solid #705d58",
+    boxShadow: "5px 5px 5px rgba(0,0,0,0)",
+    transition: theme.transitions.create(["box-shadow", "border-color"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      border: "2px solid #a1928e",
+      boxShadow: "5px 5px 5px rgba(0,0,0,0.5)",
+    },
   },
   content: {
     height: "100%",
-  },
-  overlay: {
-    position: "absolute",
-    top: "10px",
-    left: "20px",
-    color: "white",
-  },
-  overlay2: {
-    position: "absolute",
-    top: "10px",
-    right: "20px",
-    color: "white",
   },
   grid: {
     display: "flex",
@@ -47,7 +43,11 @@ export default makeStyles((theme) => ({
     padding: "0",
   },
   uploadTime: {
+    margin: "10px 0px 0px",
     fontStyle: "italic",
+  },
+  tags: {
+    margin: "10px 0px 0px",
   },
   cardActions: {
     padding: "0 16px 8px 16px",

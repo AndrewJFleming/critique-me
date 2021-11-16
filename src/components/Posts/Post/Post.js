@@ -6,6 +6,7 @@ import useStyles from "./styles";
 import {
   Card,
   CardActions,
+  CardHeader,
   CardContent,
   CardMedia,
   Button,
@@ -53,41 +54,41 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <Card className={classes.card}>
+      <CardHeader
+        title={post.title}
+        subheader={post.name}
+        action={
+          (user?.result?.googleId === post?.creator ||
+            user?.result?._id === post?.creator) && (
+            <Button
+              style={{ color: "black" }}
+              size="small"
+              onClick={() => setCurrentId(post._id)}
+            >
+              Edit
+            </Button>
+          )
+        }
+      ></CardHeader>
       <CardMedia
         className={classes.media}
         image={post.selectedFile}
         title={post.title}
       />
-      <div className={classes.overlay}>
-        <Typography variant="h5" className={classes.title} gutterBottom>
-          {post.title}
-        </Typography>
-        <Typography variant="body2" className={classes.uploadTime}>
-          {moment(post.createdAt).fromNow()}
-        </Typography>
-        <Typography variant="h7">{post.name}</Typography>
-      </div>
-      {(user?.result?.googleId === post?.creator ||
-        user?.result?._id === post?.creator) && (
-        <div className={classes.overlay2}>
-          <Button
-            style={{ color: "white" }}
-            size="small"
-            onClick={() => setCurrentId(post._id)}
-          >
-            Edit
-          </Button>
-        </div>
-      )}
       <CardContent className={classes.content}>
         <Typography variant="body" color="textSecondary" gutterBottom>
           {post.description}
         </Typography>
-        <div className={classes.details}>
-          <Typography variant="body2" color="textSecondary">
-            {post.tags.map((tag) => `#${tag} `)}
-          </Typography>
-        </div>
+        <Typography variant="body2" className={classes.tags}>
+          {moment(post.createdAt).fromNow()}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          className={classes.uploadTime}
+        >
+          {post.tags.map((tag) => `#${tag} `)}
+        </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button
