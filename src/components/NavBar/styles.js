@@ -1,22 +1,26 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { deepPurple } from "@material-ui/core/colors";
+import { lightGreen } from "@material-ui/core/colors";
 
 export default makeStyles((theme) => ({
   appBar: {
-    borderRadius: 15,
-    margin: "30px 0",
+    // borderRadius: 15,
+    margin: "0 0 30px",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "10px 50px",
+    padding: "8px 20px",
+    backgroundColor: "#7d5a5a",
   },
   heading: {
-    color: "rgba(0,183,255, 1)",
+    fontFamily: "Playfair Display",
+
+    color: "#cbe7e2",
     textDecoration: "none",
   },
   image: {
-    marginLeft: "15px",
+    marginRight: "15px",
   },
   toolbar: {
     display: "flex",
@@ -31,13 +35,16 @@ export default makeStyles((theme) => ({
   userName: {
     display: "flex",
     alignItems: "center",
+    color: "#fff",
   },
   brandContainer: {
     display: "flex",
     alignItems: "center",
   },
-  purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
+  green: {
+    // color: theme.palette.getContrastText(lightGreen[900]),
+    // backgroundColor: lightGreen[900],
+    color: "#251b15",
+    backgroundColor: "#87e89b",
   },
 }));

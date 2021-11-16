@@ -5,17 +5,36 @@ import { Container } from "@material-ui/core";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#699120",
+    },
+    secondary: {
+      main: "#cbe7e2",
+    },
+    alternative: {
+      main: "#7d5a5a",
+      bright: "#509269",
+      dark: "#000000",
+    },
+  },
+});
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Container maxWidth="lg">
+      <ThemeProvider theme={theme}>
         <NavBar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/auth" exact component={Auth} />
-        </Switch>
-      </Container>
+        <Container maxWidth="lg">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/auth" exact component={Auth} />
+          </Switch>
+        </Container>
+      </ThemeProvider>
     </BrowserRouter>
   );
 };

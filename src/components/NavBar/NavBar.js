@@ -5,7 +5,7 @@ import decode from "jwt-decode";
 
 import { LOGOUT } from "../../constants/actionTypes";
 import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
-import logoImg from "../../images/maestro.png";
+import logoImg from "../../images/maestro, green.png";
 import useStyles from "./styles";
 
 const NavBar = () => {
@@ -45,7 +45,14 @@ const NavBar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
+        <img
+          className={classes.image}
+          src={logoImg}
+          alt="CritiqueMe"
+          height="60"
+        />
         <Typography
+          color="secondary"
           component={Link}
           to="/"
           className={classes.heading}
@@ -54,18 +61,12 @@ const NavBar = () => {
         >
           CritiqueMe
         </Typography>
-        <img
-          className={classes.image}
-          src={logoImg}
-          alt="CritiqueMe"
-          height="60"
-        />
       </div>
       <Toolbar className={classes.toolbar}>
         {user ? (
           <div className={classes.profile}>
             <Avatar
-              className={classes.purple}
+              className={classes.green}
               alt={user.result.name}
               src={user.result.imageUrl}
             >

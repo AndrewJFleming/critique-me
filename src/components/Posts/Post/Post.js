@@ -29,7 +29,7 @@ const Post = ({ post, setCurrentId }) => {
         (like) => like === (user?.result?.googleId || user?.result?._id)
       ) ? (
         <>
-          <ThumbUpAltIcon fontSize="small" />
+          <ThumbUpAltIcon fontSize="small" className={classes.likeIcon} />
           &nbsp;
           {post.likes.length > 2
             ? `You and ${post.likes.length - 1} others`
@@ -91,7 +91,6 @@ const Post = ({ post, setCurrentId }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button
-          style={{ color: "primary" }}
           size="small"
           //Disabled if no user is logged in
           disabled={!user?.result}
@@ -101,12 +100,8 @@ const Post = ({ post, setCurrentId }) => {
         </Button>
         {(user?.result?.googleId === post?.creator ||
           user?.result?._id === post?.creator) && (
-          <Button
-            style={{ color: "danger" }}
-            size="small"
-            onClick={() => dispatch(deletePost(post._id))}
-          >
-            <DeleteIcon />
+          <Button size="small" onClick={() => dispatch(deletePost(post._id))}>
+            <DeleteIcon className={classes.likeIcon} />
           </Button>
         )}
       </CardActions>

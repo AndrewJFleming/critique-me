@@ -45,7 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper}>
-        <Typography variant="h6" align="center">
+        <Typography variant="h6" align="center" className={classes.prompt}>
           Please sign in to like posts and to create your own.
         </Typography>
       </Paper>
