@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
   heading: {
     fontFamily: "Playfair Display",
 
-    color: "#cbe7e2",
+    color: "#d7f0e9",
     textDecoration: "none",
   },
   image: {

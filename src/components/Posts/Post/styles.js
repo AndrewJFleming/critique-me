@@ -20,15 +20,18 @@ export default makeStyles((theme) => ({
     backgroundColor: "#f4fbf9",
     border: "2px solid #705d58",
   },
+  content: {
+    height: "100%",
+  },
   overlay: {
     position: "absolute",
-    top: "20px",
+    top: "10px",
     left: "20px",
     color: "white",
   },
   overlay2: {
     position: "absolute",
-    top: "20px",
+    top: "10px",
     right: "20px",
     color: "white",
   },
@@ -38,10 +41,13 @@ export default makeStyles((theme) => ({
   details: {
     display: "flex",
     justifyContent: "space-between",
-    margin: "20px",
+    margin: "20px 0px 0px",
   },
   title: {
-    padding: "0 16px",
+    padding: "0",
+  },
+  uploadTime: {
+    fontStyle: "italic",
   },
   cardActions: {
     padding: "0 16px 8px 16px",

@@ -59,10 +59,13 @@ const Post = ({ post, setCurrentId }) => {
         title={post.title}
       />
       <div className={classes.overlay}>
-        <Typography variant="h6">{post.name}</Typography>
-        <Typography variant="body2">
+        <Typography variant="h5" className={classes.title} gutterBottom>
+          {post.title}
+        </Typography>
+        <Typography variant="body2" className={classes.uploadTime}>
           {moment(post.createdAt).fromNow()}
         </Typography>
+        <Typography variant="h7">{post.name}</Typography>
       </div>
       {(user?.result?.googleId === post?.creator ||
         user?.result?._id === post?.creator) && (
@@ -76,18 +79,15 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
         </div>
       )}
-      <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary">
-          {post.tags.map((tag) => `#${tag} `)}
-        </Typography>
-      </div>
-      <CardContent>
-        <Typography variant="h5" className={classes.title} gutterBottom>
-          {post.title}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" gutterBottom>
+      <CardContent className={classes.content}>
+        <Typography variant="body" color="textSecondary" gutterBottom>
           {post.description}
         </Typography>
+        <div className={classes.details}>
+          <Typography variant="body2" color="textSecondary">
+            {post.tags.map((tag) => `#${tag} `)}
+          </Typography>
+        </div>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button
