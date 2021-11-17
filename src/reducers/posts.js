@@ -4,6 +4,7 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  FETCH_SINGLE,
 } from "../constants/actionTypes";
 
 /*
@@ -33,6 +34,8 @@ export default (posts = [], action) => {
       );
     case DELETE:
       return posts.filter((post) => post._id !== action.payload);
+    case FETCH_SINGLE:
+      return action.payload;
     default:
       return posts;
   }

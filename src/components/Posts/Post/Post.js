@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
 import {
@@ -89,6 +90,9 @@ const Post = ({ post, setCurrentId }) => {
         >
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
+        <Link to={`/post/${post._id}`}>
+          <span>{post.title}</span>
+        </Link>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button

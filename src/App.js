@@ -5,6 +5,7 @@ import { Container } from "@material-ui/core";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
+import SinglePost from "./components/SinglePost/SinglePost";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createTheme({
@@ -32,6 +33,7 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/auth" exact component={Auth} />
+            <Route path="/post/:postId" component={SinglePost} />
           </Switch>
         </Container>
       </ThemeProvider>
