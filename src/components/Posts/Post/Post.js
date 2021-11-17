@@ -56,7 +56,11 @@ const Post = ({ post, setCurrentId }) => {
   return (
     <Card className={classes.card}>
       <CardHeader
-        title={post.title}
+        title={
+          <Link to={`/post/${post._id}`}>
+            <span>{post.title}</span>
+          </Link>
+        }
         subheader={post.name}
         action={
           (user?.result?.googleId === post?.creator ||
@@ -71,11 +75,15 @@ const Post = ({ post, setCurrentId }) => {
           )
         }
       ></CardHeader>
-      <CardMedia
-        className={classes.media}
-        image={post.selectedFile}
-        title={post.title}
-      />
+
+      <Link to={`/post/${post._id}`}>
+        <CardMedia
+          className={classes.media}
+          image={post.selectedFile}
+          title={post.title}
+        />
+      </Link>
+
       <CardContent className={classes.content}>
         <Typography variant="body" color="textSecondary" gutterBottom>
           {post.description}
@@ -90,9 +98,6 @@ const Post = ({ post, setCurrentId }) => {
         >
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
-        <Link to={`/post/${post._id}`}>
-          <span>{post.title}</span>
-        </Link>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button
