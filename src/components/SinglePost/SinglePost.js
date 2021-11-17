@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 
-import { getPosts } from "../../actions/posts";
+import { getPosts, fetchPost } from "../../actions/posts";
 import useStyles from "./styles";
 import {
   Card,
@@ -17,16 +17,13 @@ import {
 const SinglePost = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-  // const post = useSelector((state) => state.posts.find((p) => p._id === path));
   const dispatch = useDispatch();
   const classes = useStyles();
-  const posts = useSelector((state) => state.posts);
-  const [post, setPost] = useState(null);
+  const post = useSelector((state) => state.posts);
 
   useEffect(() => {
-    dispatch(getPosts());
-    setPost(posts.find((p) => p._id === path));
-  }, [post, dispatch, posts]);
+    dispatch(fetchPost(path));
+  }, [dispatch, path]);
 
   return (
     <React.Fragment>
@@ -47,13 +44,13 @@ const SinglePost = () => {
             <Typography variant="body" color="textSecondary" gutterBottom>
               {post.description}
             </Typography>
-            <Typography
+            {/* <Typography
               variant="body2"
               color="textSecondary"
               className={classes.uploadTime}
             >
               {post.tags.map((tag) => `#${tag} `)}
-            </Typography>
+            </Typography> */}
           </CardContent>
         </Card>
       )}
