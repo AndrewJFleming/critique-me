@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     borderRadius: "5px",
     height: "100%",
     position: "relative",
-    backgroundColor: "#f4fbf9",
+    backgroundColor: "#fff",
     border: "2px solid #705d58",
     boxShadow: "5px 5px 5px rgba(0,0,0,0)",
     transition: theme.transitions.create(["box-shadow", "border-color"], {
@@ -50,7 +50,8 @@ export default makeStyles((theme) => ({
     margin: "10px 0px 0px",
   },
   cardActions: {
-    padding: "0 16px 8px 16px",
+    backgroundColor: "#d7f0e9",
+    padding: "8px 16px 8px 16px",
     display: "flex",
     justifyContent: "space-between",
   },
