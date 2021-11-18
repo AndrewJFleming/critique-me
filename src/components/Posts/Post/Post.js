@@ -17,7 +17,7 @@ import LikeIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
-
+import LaunchIcon from "@material-ui/icons/Launch";
 import { deletePost, likePost } from "../../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
@@ -76,7 +76,8 @@ const Post = ({ post, setCurrentId }) => {
         }
       ></CardHeader>
 
-      <Link to={`/post/${post._id}`}>
+      <Link className={classes.mediaWrapper} to={`/post/${post._id}`}>
+        <LaunchIcon className={classes.launch} />
         <CardMedia
           className={classes.media}
           image={post.selectedFile}

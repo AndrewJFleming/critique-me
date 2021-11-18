@@ -7,6 +7,9 @@ export default makeStyles((theme) => ({
     backgroundColor: "rgba(0, 0, 0, 0)",
     backgroundBlendMode: "darken",
   },
+  mediaWrapper: {
+    position: "relative",
+  },
   fullHeightCard: {
     height: "100%",
   },
@@ -57,5 +60,11 @@ export default makeStyles((theme) => ({
   },
   likeIcon: {
     color: theme.palette.alternative.bright,
+  },
+  launch: {
+    position: "absolute",
+    top: "5px",
+    right: "5px",
+    // opacity: "0.5",
   },
 }));
