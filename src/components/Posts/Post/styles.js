@@ -65,6 +65,6 @@ export default makeStyles((theme) => ({
     position: "absolute",
     top: "5px",
     right: "5px",
-    // opacity: "0.5",
+    opacity: "0.5",
   },
 }));

@@ -58,4 +58,10 @@ export default makeStyles((theme) => ({
   likeIcon: {
     color: theme.palette.alternative.bright,
   },
+  cardActions: {
+    backgroundColor: "#d7f0e9",
+    padding: "8px 16px 8px 16px",
+    display: "flex",
+    justifyContent: "space-between",
+  },
 }));
