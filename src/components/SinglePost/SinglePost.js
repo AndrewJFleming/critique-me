@@ -12,6 +12,7 @@ import {
   CardMedia,
   Button,
   Typography,
+  CircularProgress,
 } from "@material-ui/core";
 
 const SinglePost = () => {
@@ -25,36 +26,34 @@ const SinglePost = () => {
     dispatch(fetchPost(path));
   }, [dispatch, path]);
 
-  return (
-    <React.Fragment>
-      {post && (
-        <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image={post.selectedFile}
-            title={post.title}
-          />
-          <CardContent className={classes.content}>
-            <Typography variant="h5" gutterBottom>
-              {post.title}
-            </Typography>
-            <Typography variant="h6" color="textSecondary" gutterBottom>
-              By: {post.name}
-            </Typography>
-            <Typography variant="body" color="textSecondary" gutterBottom>
-              {post.description}
-            </Typography>
-            {/* <Typography
-              variant="body2"
-              color="textSecondary"
-              className={classes.uploadTime}
-            >
-              {post.tags.map((tag) => `#${tag} `)}
-            </Typography> */}
-          </CardContent>
-        </Card>
-      )}
-    </React.Fragment>
+  return !post.selectedFile || !post ? (
+    <CircularProgress />
+  ) : (
+    <Card className={classes.card}>
+      <CardMedia
+        className={classes.media}
+        image={post.selectedFile}
+        title={post.title}
+      />
+      <CardContent className={classes.content}>
+        <Typography variant="h5" gutterBottom>
+          {post.title}
+        </Typography>
+        <Typography variant="h6" color="textSecondary" gutterBottom>
+          By: {post.name}
+        </Typography>
+        <Typography variant="body" color="textSecondary" gutterBottom>
+          {post.description}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          className={classes.uploadTime}
+        >
+          {post.tags.map((tag) => `#${tag} `)}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 

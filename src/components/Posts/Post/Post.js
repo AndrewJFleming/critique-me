@@ -85,8 +85,10 @@ const Post = ({ post, setCurrentId }) => {
       </Link>
 
       <CardContent className={classes.content}>
-        <Typography variant="body" color="textSecondary" gutterBottom>
-          {post.description}
+        <Typography variant="body2" color="textSecondary" gutterBottom>
+          {`${post.description.substring(0, 100)}...`}
+          <br />
+          <Link to={`/post/${post._id}`}>Read more</Link>
         </Typography>
         <Typography variant="body2" className={classes.tags}>
           {moment(post.createdAt).fromNow()}

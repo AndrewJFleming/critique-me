@@ -1,6 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { deepPurple } from "@material-ui/core/colors";
-import { lightGreen } from "@material-ui/core/colors";
 
 export default makeStyles((theme) => ({
   appBar: {
@@ -11,7 +9,7 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "8px 20px",
-    backgroundColor: "#7d5a5a",
+    backgroundColor: "#705d58",
   },
   heading: {
     fontFamily: "Playfair Display",
