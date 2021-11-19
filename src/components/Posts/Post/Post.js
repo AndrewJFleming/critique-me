@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
 import {

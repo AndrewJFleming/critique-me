@@ -66,6 +66,16 @@ export default makeStyles((theme) => ({
   },
   likeIcon: {
     color: theme.palette.alternative.bright,
+    "&:text": {
+      color: theme.palette.alternative.bright,
+    },
+  },
+  likeIcon: {
+    color: theme.palette.alternative.bright,
+  },
+  likeText: {
+    color: theme.palette.alternative.bright,
+    margin: "0",
   },
   launch: {
     position: "absolute",
