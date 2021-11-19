@@ -9,10 +9,8 @@ export default makeStyles((theme) => ({
   },
   launchWrapper: {
     position: "relative",
-    hover: {
-      "&:hover": {
-        cursor: "pointer",
-      },
+    "&:hover": {
+      cursor: "pointer",
     },
   },
   fullHeightCard: {
@@ -47,8 +45,11 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     margin: "20px 0px 0px",
   },
-  title: {
-    padding: "0",
+  launchText: {
+    color: theme.palette.primary.main,
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
   uploadTime: {
     margin: "10px 0px 0px",
@@ -71,10 +72,6 @@ export default makeStyles((theme) => ({
     top: "5px",
     right: "5px",
     opacity: "0.5",
-  },
-  modal: {
-    width: "500px",
-    height: "500px",
-    position: "absolute",
+    color: theme.palette.primary.main,
   },
 }));

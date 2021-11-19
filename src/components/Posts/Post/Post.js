@@ -43,9 +43,12 @@ const Post = ({ post, setCurrentId }) => {
         />
       ) : null}
       <Card className={classes.card}>
-        <Button onClick={showModalHandler}>Modal</Button>
         <CardHeader
-          title={<span onClick={showModalHandler}>{post.title}</span>}
+          title={
+            <span className={classes.launchText} onClick={showModalHandler}>
+              {post.title}
+            </span>
+          }
           subheader={post.name}
           action={
             (user?.result?.googleId === post?.creator ||
@@ -75,7 +78,9 @@ const Post = ({ post, setCurrentId }) => {
           <Typography variant="body2" color="textSecondary" gutterBottom>
             {`${post.description.substring(0, 100)}...`}
             <br />
-            <Link to={`/post/${post._id}`}>Read more</Link>
+            <span className={classes.launchText} onClick={showModalHandler}>
+              Read more
+            </span>
           </Typography>
           <Typography variant="body2" className={classes.tags}>
             {moment(post.createdAt).fromNow()}
