@@ -12,9 +12,9 @@ const Likes = ({ post, user }) => {
       (like) => like === (user?.result?.googleId || user?.result?._id)
     ) ? (
       <>
-        <ThumbUpAltIcon fontSize="small" className={classes.likeIcon} />
+        <ThumbUpAltIcon fontSize="small" className={classes.actionsIcon} />
         &nbsp;
-        <p className={classes.likeText}>
+        <p className={classes.actionsText}>
           {post.likes.length > 2
             ? `You and ${post.likes.length - 1} others`
             : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
@@ -22,9 +22,9 @@ const Likes = ({ post, user }) => {
       </>
     ) : (
       <>
-        <ThumbUpAltOutlined className={classes.likeIcon} fontSize="small" />
+        <ThumbUpAltOutlined className={classes.actionsIcon} fontSize="small" />
         &nbsp;
-        <p className={classes.likeText}>
+        <p className={classes.actionsText}>
           {post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
         </p>
       </>
@@ -33,8 +33,8 @@ const Likes = ({ post, user }) => {
 
   return (
     <>
-      <ThumbUpAltOutlined className={classes.likeIcon} fontSize="small" />
-      &nbsp;<p className={classes.likeText}>Like</p>
+      <ThumbUpAltOutlined className={classes.actionsIcon} fontSize="small" />
+      &nbsp;<p className={classes.actionsText}>Like</p>
     </>
   );
 };

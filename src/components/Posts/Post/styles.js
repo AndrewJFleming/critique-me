@@ -64,16 +64,10 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  likeIcon: {
-    color: theme.palette.alternative.bright,
-    "&:text": {
-      color: theme.palette.alternative.bright,
-    },
-  },
-  likeIcon: {
+  actionsIcon: {
     color: theme.palette.alternative.bright,
   },
-  likeText: {
+  actionsText: {
     color: theme.palette.alternative.bright,
     margin: "0",
   },

@@ -31,9 +31,6 @@ const Modal = ({ post, user, close, author, heading, desc, image }) => {
         </Typography>
       </CardContent>
       <CardActions className="cardActions">
-        <Button size="small" onClick={close}>
-          Close
-        </Button>
         <Button
           size="small"
           //Disabled if no user is logged in
@@ -41,6 +38,9 @@ const Modal = ({ post, user, close, author, heading, desc, image }) => {
           onClick={() => dispatch(likePost(post._id))}
         >
           <Likes post={post} user={user} />
+        </Button>
+        <Button className="actionsText" size="small" onClick={close}>
+          Close
         </Button>
       </CardActions>
     </Card>
