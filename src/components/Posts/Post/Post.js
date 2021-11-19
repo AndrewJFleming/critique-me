@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,112 +13,100 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import LikeIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import LaunchIcon from "@material-ui/icons/Launch";
 import { deletePost, likePost } from "../../../actions/posts";
+import Modal from "./Modal/Modal";
+import Likes from "./Likes";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
+  const [showModal, setShowModal] = useState(false);
 
-  const Likes = () => {
-    if (post?.likes?.length > 0) {
-      return post.likes.find(
-        (like) => like === (user?.result?.googleId || user?.result?._id)
-      ) ? (
-        <>
-          <ThumbUpAltIcon fontSize="small" className={classes.likeIcon} />
-          &nbsp;
-          {post.likes.length > 2
-            ? `You and ${post.likes.length - 1} others`
-            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
-        </>
-      ) : (
-        <>
-          <ThumbUpAltOutlined fontSize="small" />
-          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
-        </>
-      );
-    }
+  const showModalHandler = () => setShowModal(true);
 
-    return (
-      <>
-        <ThumbUpAltOutlined fontSize="small" />
-        &nbsp;Like
-      </>
-    );
-  };
+  const closeModalHandler = () => setShowModal(false);
 
   return (
-    <Card className={classes.card}>
-      <CardHeader
-        title={
-          <Link to={`/post/${post._id}`}>
-            <span>{post.title}</span>
-          </Link>
-        }
-        subheader={post.name}
-        action={
-          (user?.result?.googleId === post?.creator ||
-            user?.result?._id === post?.creator) && (
-            <Button
-              style={{ color: "black" }}
-              size="small"
-              onClick={() => setCurrentId(post._id)}
-            >
-              Edit
-            </Button>
-          )
-        }
-      ></CardHeader>
-
-      <Link className={classes.mediaWrapper} to={`/post/${post._id}`}>
-        <LaunchIcon className={classes.launch} />
-        <CardMedia
-          className={classes.media}
+    <React.Fragment>
+      {showModal ? (
+        <Modal
+          close={closeModalHandler}
+          author={post.name}
+          heading={post.title}
+          desc={post.description}
           image={post.selectedFile}
-          title={post.title}
+          post={post}
+          user={user}
         />
-      </Link>
+      ) : null}
+      <Card className={classes.card}>
+        <Button onClick={showModalHandler}>Modal</Button>
+        <CardHeader
+          title={<span onClick={showModalHandler}>{post.title}</span>}
+          subheader={post.name}
+          action={
+            (user?.result?.googleId === post?.creator ||
+              user?.result?._id === post?.creator) && (
+              <Button
+                style={{ color: "black" }}
+                size="small"
+                onClick={() => setCurrentId(post._id)}
+              >
+                Edit
+              </Button>
+            )
+          }
+        ></CardHeader>
 
-      <CardContent className={classes.content}>
-        <Typography variant="body2" color="textSecondary" gutterBottom>
-          {`${post.description.substring(0, 100)}...`}
-          <br />
-          <Link to={`/post/${post._id}`}>Read more</Link>
-        </Typography>
-        <Typography variant="body2" className={classes.tags}>
-          {moment(post.createdAt).fromNow()}
-        </Typography>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          className={classes.uploadTime}
-        >
-          {post.tags.map((tag) => `#${tag} `)}
-        </Typography>
-      </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button
-          size="small"
-          //Disabled if no user is logged in
-          disabled={!user?.result}
-          onClick={() => dispatch(likePost(post._id))}
-        >
-          <Likes />
-        </Button>
-        {(user?.result?.googleId === post?.creator ||
-          user?.result?._id === post?.creator) && (
-          <Button size="small" onClick={() => dispatch(deletePost(post._id))}>
-            <DeleteIcon className={classes.likeIcon} />
+        <span className={classes.launchWrapper} onClick={showModalHandler}>
+          <LaunchIcon className={classes.launch} />
+          <CardMedia
+            size="small"
+            className={classes.media}
+            image={post.selectedFile}
+            title={post.title}
+          />
+        </span>
+
+        <CardContent className={classes.content}>
+          <Typography variant="body2" color="textSecondary" gutterBottom>
+            {`${post.description.substring(0, 100)}...`}
+            <br />
+            <Link to={`/post/${post._id}`}>Read more</Link>
+          </Typography>
+          <Typography variant="body2" className={classes.tags}>
+            {moment(post.createdAt).fromNow()}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            className={classes.uploadTime}
+          >
+            {post.tags.map((tag) => `#${tag} `)}
+          </Typography>
+        </CardContent>
+        <CardActions className={classes.cardActions}>
+          <Button
+            size="small"
+            //Disabled if no user is logged in
+            disabled={!user?.result}
+            onClick={() => dispatch(likePost(post._id))}
+          >
+            <Likes post={post} user={user} />
           </Button>
-        )}
-      </CardActions>
-    </Card>
+
+          {(user?.result?.googleId === post?.creator ||
+            user?.result?._id === post?.creator) && (
+            <Button size="small" onClick={() => dispatch(deletePost(post._id))}>
+              <DeleteIcon className={classes.likeIcon} />
+            </Button>
+          )}
+        </CardActions>
+      </Card>
+    </React.Fragment>
   );
 };
 

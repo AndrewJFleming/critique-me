@@ -7,8 +7,13 @@ export default makeStyles((theme) => ({
     backgroundColor: "rgba(0, 0, 0, 0)",
     backgroundBlendMode: "darken",
   },
-  mediaWrapper: {
+  launchWrapper: {
     position: "relative",
+    hover: {
+      "&:hover": {
+        cursor: "pointer",
+      },
+    },
   },
   fullHeightCard: {
     height: "100%",
@@ -66,5 +71,10 @@ export default makeStyles((theme) => ({
     top: "5px",
     right: "5px",
     opacity: "0.5",
+  },
+  modal: {
+    width: "500px",
+    height: "500px",
+    position: "absolute",
   },
 }));

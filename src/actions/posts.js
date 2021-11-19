@@ -4,7 +4,6 @@ import {
   UPDATE,
   DELETE,
   LIKE,
-  FETCH_SINGLE,
 } from "../constants/actionTypes";
 
 //We'll be able to use the functions in ../api/index.js like within getPosts below; api.fetchPosts
@@ -58,15 +57,6 @@ export const likePost = (id) => async (dispatch) => {
   try {
     const { data } = await api.likePost(id);
     dispatch({ type: LIKE, payload: data });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const fetchPost = (id) => async (dispatch) => {
-  try {
-    const { data } = await api.fetchPost(id);
-    dispatch({ type: FETCH_SINGLE, payload: data });
   } catch (error) {
     console.log(error);
   }
