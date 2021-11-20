@@ -123,7 +123,7 @@ const Modal = (props) => {
   return (
     <React.Fragment>
       {props.show && <Backdrop onClick={props.close} />}
-      <ModalOverlay {...props} />;
+      <ModalOverlay {...props} />
     </React.Fragment>
   );
 };
