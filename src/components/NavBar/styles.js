@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   appBar: {
+    zIndex: "99",
     // borderRadius: 15,
     margin: "0 0 30px",
     display: "flex",

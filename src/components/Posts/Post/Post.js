@@ -32,6 +32,7 @@ const Post = ({ post, setCurrentId }) => {
     <React.Fragment>
       {showModal ? (
         <Modal
+          show={showModal}
           close={closeModalHandler}
           author={post.name}
           heading={post.title}
@@ -104,7 +105,11 @@ const Post = ({ post, setCurrentId }) => {
 
           {(user?.result?.googleId === post?.creator ||
             user?.result?._id === post?.creator) && (
-            <Button size="small" onClick={() => dispatch(deletePost(post._id))}>
+            <Button
+              className={classes.dangerIcon}
+              size="small"
+              onClick={() => dispatch(deletePost(post._id))}
+            >
               <DeleteIcon className={classes.likeIcon} />
             </Button>
           )}

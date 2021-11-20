@@ -19,6 +19,7 @@ const theme = createTheme({
       main: "#7d5a5a",
       bright: "#509269",
       dark: "#000000",
+      danger: "#47221e",
     },
   },
 });

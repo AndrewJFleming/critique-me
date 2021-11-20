@@ -71,6 +71,9 @@ export default makeStyles((theme) => ({
     color: theme.palette.alternative.bright,
     margin: "0",
   },
+  dangerIcon: {
+    color: theme.palette.alternative.danger,
+  },
   launch: {
     position: "absolute",
     top: "5px",
