@@ -4,6 +4,7 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  FETCH_BY_SEARCH,
 } from "../constants/actionTypes";
 
 //We'll be able to use the functions in ../api/index.js like within getPosts below; api.fetchPosts
@@ -19,6 +20,19 @@ export const getPosts = () => async (dispatch) => {
     const { data } = await api.fetchPosts();
     //Payload is where we store all our posts
     dispatch({ type: FETCH_ALL, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+  try {
+    // dispatch({ type: START_LOADING });
+    const {
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
+    dispatch({ type: FETCH_BY_SEARCH, payload: data });
+    // dispatch({ type: END_LOADING });
   } catch (error) {
     console.log(error);
   }

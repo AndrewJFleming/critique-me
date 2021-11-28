@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 
 import ChipInput from "material-ui-chip-input";
-import { getPosts } from "../../actions/posts";
+import { getPosts, getPostsBySearch } from "../../actions/posts";
 import Pagination from "../Pagination";
 import Form from "../Form/Form";
 import Posts from "../Posts/Posts";
@@ -24,19 +24,17 @@ function useQuery() {
 }
 
 const Home = () => {
-  const classes = useStyles;
+  const [currentId, setCurrentId] = useState(null);
+  const dispatch = useDispatch();
   const query = useQuery();
   const history = useHistory();
   //Reads our URL to see if 'page' param exists.
   //If no 'page' param then default to '1'.
   const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
+  const classes = useStyles;
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
-
-  const [currentId, setCurrentId] = useState(null);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPosts());
@@ -50,6 +48,10 @@ const Home = () => {
 
   const searchPost = () => {
     if (search.trim() || tags) {
+      dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
+      history.push(
+        `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
+      );
     } else {
       history.push("/");
     }
@@ -112,9 +114,7 @@ const Home = () => {
               elevation={6}
               // className={classes.pagination}
             >
-              <Pagination
-              // page={page}
-              />
+              <Pagination page={page} />
             </Paper>
           </Grid>
         </Grid>
