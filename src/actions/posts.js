@@ -14,10 +14,10 @@ import * as api from "../api";
 //You'll nodice in the posts.js reducer that both of these action fields are referenced.
 
 //The nested async function with the dispatch params is for react-thunk
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (page) => async (dispatch) => {
   try {
     //destructuring to {data} is equivalent to response.data
-    const { data } = await api.fetchPosts();
+    const { data } = await api.fetchPosts(page);
     //Payload is where we store all our posts
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {

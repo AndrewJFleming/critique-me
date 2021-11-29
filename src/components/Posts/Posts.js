@@ -10,7 +10,7 @@ import { Grid, CircularProgress } from "@material-ui/core";
 const Posts = ({ setCurrentId }) => {
   //We can pull out a specific piece of global state...
   //Your data will be updated automatically when store data changes.
-  const posts = useSelector((state) => state.posts);
+  const { posts } = useSelector((state) => state.posts);
   const classes = useStyles();
 
   return !posts.length ? (
@@ -23,7 +23,7 @@ const Posts = ({ setCurrentId }) => {
       spacing={3}
     >
       {posts.map((post) => (
-        <Grid key={post._id} xs={12} sm={6} item>
+        <Grid key={post._id} item xs={12} sm={12} md={6} lg={3}>
           <Post post={post} setCurrentId={setCurrentId} />
         </Grid>
       ))}
