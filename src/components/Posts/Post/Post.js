@@ -16,7 +16,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import LaunchIcon from "@material-ui/icons/Launch";
 import { deletePost, likePost } from "../../../actions/posts";
 import Modal from "./Modal/Modal";
-import Likes from "./Likes";
+import Likes from "./Likes/Likes";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();

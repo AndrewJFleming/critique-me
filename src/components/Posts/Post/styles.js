@@ -64,13 +64,6 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  actionsIcon: {
-    color: theme.palette.alternative.bright,
-  },
-  actionsText: {
-    color: theme.palette.alternative.bright,
-    margin: "0",
-  },
   dangerIcon: {
     color: theme.palette.alternative.danger,
   },

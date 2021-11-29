@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { likePost, deletePost } from "../../../../actions/posts";
-import Likes from "../Likes";
+import Likes from "../Likes/Likes";
 import Backdrop from "./Backdrop";
 import DeleteIcon from "@material-ui/icons/Delete";
 
