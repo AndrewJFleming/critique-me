@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import FileBase from "react-file-base64";
-import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import FileBase from "react-file-base64";
+import { useHistory } from "react-router-dom";
 
 import { createPost, updatePost } from "../../actions/posts";
 import useStyles from "./styles";
@@ -13,26 +14,33 @@ const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     title: "",
     description: "",
-    tags: "",
+    tags: [],
     selectedFile: "",
   });
   const post = useSelector((state) =>
-    currentId ? state.posts.find((p) => p._id === currentId) : null
+    currentId ? state.posts.posts.find((p) => p._id === currentId) : null
   );
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
+  const history = useHistory();
 
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
 
+  const clear = () => {
+    setCurrentId(0);
+    setPostData({ title: "", description: "", tags: "", selectedFile: "" });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (currentId === 0) {
-    if (!currentId) {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
+    if (currentId === 0) {
+      // if (!currentId) {
+      dispatch(createPost({ ...postData, name: user?.result?.name }, history));
+
       clear();
     } else {
       dispatch(
@@ -51,16 +59,6 @@ const Form = ({ currentId, setCurrentId }) => {
       </Paper>
     );
   }
-
-  const clear = () => {
-    setCurrentId(null);
-    setPostData({
-      title: "",
-      description: "",
-      tags: "",
-      selectedFile: "",
-    });
-  };
 
   return (
     <Paper className={classes.paper}>
@@ -138,8 +136,8 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="contained"
           color="secondary"
           size="small"
-          fullWidth
           onClick={clear}
+          fullWidth
         >
           Clear
         </Button>
