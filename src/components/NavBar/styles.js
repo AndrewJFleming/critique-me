@@ -14,25 +14,31 @@ export default makeStyles((theme) => ({
   },
   heading: {
     fontFamily: "Playfair Display",
-
     color: "#d7f0e9",
     textDecoration: "none",
+    "@media(max-width: 599px)": {
+      fontSize: "2rem",
+    },
+    "@media(max-width: 449px)": {
+      display: "none",
+    },
   },
   image: {
     marginRight: "15px",
   },
   toolbar: {
-    display: "flex",
-    justifyContent: "flex-end",
-    width: "400px",
+    // display: "flex",
+    // justifyContent: "flex-end",
+    // width: "400px",
   },
   profile: {
     display: "flex",
     justifyContent: "space-between",
-    width: "400px",
+    // width: "400px",
   },
   userName: {
     display: "flex",
+    paddingRight: "20px",
     alignItems: "center",
     color: "#fff",
   },
