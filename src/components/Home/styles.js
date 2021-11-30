@@ -17,11 +17,11 @@ export default makeStyles((theme) => ({
       marginBottom: "0",
     },
   },
-  // paginationForm: {
-  //   "@media(max-width: 599px)": {
-  //     display: "none",
-  //   },
-  // },
+  paginationForm: {
+    "@media(min-width: 1280px)": {
+      display: "none",
+    },
+  },
   gridContainer: {
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column-reverse",
