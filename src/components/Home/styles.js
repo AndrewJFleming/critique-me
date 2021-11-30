@@ -8,16 +8,20 @@ export default makeStyles((theme) => ({
     padding: "16px",
   },
   pagination: {
-    borderRadius: 4,
-    marginTop: "1rem",
+    backgroundColor: "rgba(0,0,0,0)",
+    width: "100%",
+    margin: "1rem 0",
     padding: "16px",
+    "& a": { color: "white" },
+    "@media(max-width: 599px)": {
+      marginBottom: "0",
+    },
   },
-  heading: {
-    color: "rgb(68, 97, 30)",
-  },
-  image: {
-    marginLeft: "15px",
-  },
+  // paginationForm: {
+  //   "@media(max-width: 599px)": {
+  //     display: "none",
+  //   },
+  // },
   gridContainer: {
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column-reverse",

@@ -5,7 +5,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import ChipInput from "material-ui-chip-input";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
-import Pagination from "../Pagination";
+import Pagination from "../Pagination/Pagination";
 import Form from "../Form/Form";
 import Posts from "../Posts/Posts";
 import {
@@ -32,7 +32,7 @@ const Home = () => {
   //If no 'page' param then default to '1'.
   const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
-  const classes = useStyles;
+  const classes = useStyles();
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -76,6 +76,9 @@ const Home = () => {
         >
           <Grid item xs={12} sm={6} md={9}>
             <Posts setCurrentId={setCurrentId} />
+            <Container className={classes.pagination}>
+              <Pagination page={page} />
+            </Container>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <AppBar
@@ -110,12 +113,11 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <Paper
-              elevation={6}
-              // className={classes.pagination}
+            <Container
+              className={`${classes.pagination} ${classes.paginationForm}`}
             >
               <Pagination page={page} />
-            </Paper>
+            </Container>
           </Grid>
         </Grid>
       </Container>
