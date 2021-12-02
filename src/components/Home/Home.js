@@ -24,7 +24,7 @@ function useQuery() {
 }
 
 const Home = () => {
-  const [currentId, setCurrentId] = useState(null);
+  const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const query = useQuery();
   const history = useHistory();

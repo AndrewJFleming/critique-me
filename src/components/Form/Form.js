@@ -38,7 +38,6 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      // if (!currentId) {
       dispatch(createPost({ ...postData, name: user?.result?.name }, history));
 
       clear();
