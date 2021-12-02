@@ -44,7 +44,7 @@ export const createPost = (post, history) => async (dispatch) => {
     dispatch({ type: CREATE, payload: data });
 
     //Implement loading feature
-    history.push(`/posts`);
+    history.push(`/`);
   } catch (error) {
     console.log(error);
   }
