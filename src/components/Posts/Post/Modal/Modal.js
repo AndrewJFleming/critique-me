@@ -16,6 +16,7 @@ import { likePost, deletePost } from "../../../../actions/posts";
 import Likes from "../Likes/Likes";
 import Backdrop from "./Backdrop";
 import DeleteIcon from "@material-ui/icons/Delete";
+import CommentSection from "./CommentSection/CommentSection";
 
 const ModalOverlay = (props) => {
   const dispatch = useDispatch();
@@ -85,6 +86,7 @@ const ModalOverlay = (props) => {
           <Typography variant="body" color="textSecondary" gutterBottom>
             {props.desc}
           </Typography>
+          <CommentSection post={props.post} />
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
