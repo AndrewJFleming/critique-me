@@ -91,7 +91,6 @@ const ModalOverlay = (props) => {
         <CardActions className={classes.cardActions}>
           <Button
             size="small"
-            //Disabled if no user is logged in
             disabled={!props.user?.result}
             onClick={() => dispatch(likePost(props.post._id))}
           >

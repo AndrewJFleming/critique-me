@@ -37,7 +37,7 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignup) {
-      //We also pass history so we can navigate once something happens
+      //We also pass history so we can redirect once something happens
       dispatch(signup(formData, history));
     } else {
       dispatch(signin(formData, history));
@@ -63,7 +63,6 @@ const Auth = () => {
     try {
       dispatch({ type: AUTH, data: { result, token } });
 
-      //After successful dispatch, redirect to homepage.
       history.push("/");
     } catch (error) {
       console.log(error);

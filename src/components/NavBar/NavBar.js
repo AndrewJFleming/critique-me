@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 
 import { LOGOUT } from "../../constants/actionTypes";
-import { AppBar, Typography, Toolbar, Avatar, Button } from "@material-ui/core";
+import { AppBar, Typography, Toolbar, Button } from "@material-ui/core";
 import logoImg from "../../images/maestro, green.png";
 import useStyles from "./styles";
 
@@ -13,7 +13,6 @@ const NavBar = () => {
   const history = useHistory();
   const location = useLocation();
   const classes = useStyles();
-  //Take note of how we retrieve data from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   const logout = () => {

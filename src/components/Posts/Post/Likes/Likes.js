@@ -3,7 +3,6 @@ import React from "react";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import useStyles from "./styles";
-import { Typography } from "@material-ui/core";
 
 const Likes = ({ post, user }) => {
   const classes = useStyles();

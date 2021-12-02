@@ -53,7 +53,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paper}>
         <Typography variant="h6" align="center" className={classes.prompt}>
-          Please sign in to like posts and to create your own.
+          Please sign in to critique projects and to post your own.
         </Typography>
       </Paper>
     );

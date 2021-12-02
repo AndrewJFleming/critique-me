@@ -8,7 +8,6 @@ import {
   FETCH_BY_SEARCH,
 } from "../constants/actionTypes";
 
-//We'll be able to use the functions in ../api/index.js like within getPosts below; api.fetchPosts
 import * as api from "../api";
 
 //Components dispatch (trigger) actions and each action has a type and a payload.
@@ -43,7 +42,6 @@ export const createPost = (post, history) => async (dispatch) => {
 
     dispatch({ type: CREATE, payload: data });
 
-    //Implement loading feature
     history.push(`/`);
   } catch (error) {
     console.log(error);
