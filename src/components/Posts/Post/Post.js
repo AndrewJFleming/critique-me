@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 
@@ -27,6 +27,15 @@ const Post = ({ post, setCurrentId }) => {
   const showModalHandler = () => setShowModal(true);
 
   const closeModalHandler = () => setShowModal(false);
+
+  useEffect(() => {
+    const body = document.body;
+    if (showModal) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "visible";
+    }
+  }, [showModal]);
 
   return (
     <React.Fragment>
