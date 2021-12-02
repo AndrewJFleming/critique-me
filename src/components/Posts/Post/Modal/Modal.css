@@ -18,3 +18,13 @@
     width: 40rem;
   }
 }
+
+@media (max-height: 768px) {
+  .modal {
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    overflow-y: scroll !important;
+  }
+}
