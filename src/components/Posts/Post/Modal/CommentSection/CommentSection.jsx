@@ -7,8 +7,7 @@ import { commentPost } from "../../../../../actions/posts";
 
 const CommentSection = ({ post }) => {
   const classes = useStyles();
-  const [comments, setComments] = useState([]);
-
+  const [comments, setComments] = useState(post?.comments);
   const [comment, setComment] = useState("");
   const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch();
@@ -17,6 +16,7 @@ const CommentSection = ({ post }) => {
     const finalComment = `${user?.result?.name}: ${comment}`;
     const newComments = await dispatch(commentPost(finalComment, post._id));
     setComments(newComments);
+    setComment("");
   };
 
   return (
