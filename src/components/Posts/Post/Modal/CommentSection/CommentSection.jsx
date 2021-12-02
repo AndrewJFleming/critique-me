@@ -3,11 +3,12 @@ import { Typography, TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
-import { commentPost } from "../../actions/posts";
+import { commentPost } from "../../../../../actions/posts";
 
 const CommentSection = ({ post }) => {
   const classes = useStyles();
   const [comments, setComments] = useState([]);
+
   const [comment, setComment] = useState("");
   const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch();
