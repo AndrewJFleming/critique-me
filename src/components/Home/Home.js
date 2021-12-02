@@ -66,7 +66,6 @@ const Home = () => {
     <Grow in>
       <Container maxWidth="xl">
         <Grid
-          className={classes.mainContainer}
           container
           justifyContent="space-between"
           alignItems="stretch"
