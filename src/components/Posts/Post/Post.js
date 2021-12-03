@@ -92,7 +92,7 @@ const Post = ({ post, setCurrentId }) => {
             </span>
           </Typography>
           <Typography variant="body2" className={classes.tags}>
-            {moment(post.createdAt).fromNow()}
+            Posted {moment(post.createdAt).fromNow()}
           </Typography>
           <Typography
             variant="body2"
@@ -111,7 +111,6 @@ const Post = ({ post, setCurrentId }) => {
           >
             <Likes post={post} user={user} />
           </Button>
-
           {(user?.result?.googleId === post?.creator ||
             user?.result?._id === post?.creator) && (
             <Button
