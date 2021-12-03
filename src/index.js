@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//react-redux allows use to work with react and redux together
 import { Provider } from "react-redux";
 
 import App from "./App";

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import Post from "./Post/Post";
 import useStyles from "./styles";
-import { Grid, CircularProgress, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 const Posts = ({ setCurrentId }) => {
   //We can pull out a specific piece of global state...
