@@ -111,11 +111,13 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <Container
-              className={`${classes.pagination} ${classes.paginationForm}`}
-            >
-              <Pagination page={page} />
-            </Container>
+            {!searchQuery && !tags.length && (
+              <Container
+                className={`${classes.pagination} ${classes.paginationForm}`}
+              >
+                <Pagination page={page} />
+              </Container>
+            )}
           </Grid>
         </Grid>
       </Container>

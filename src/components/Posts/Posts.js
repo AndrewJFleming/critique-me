@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import Post from "./Post/Post";
 import useStyles from "./styles";
-import { Grid, CircularProgress } from "@material-ui/core";
+import { Grid, CircularProgress, Typography } from "@material-ui/core";
 
 const Posts = ({ setCurrentId }) => {
   //We can pull out a specific piece of global state...
@@ -14,7 +14,9 @@ const Posts = ({ setCurrentId }) => {
   const classes = useStyles();
 
   return !posts.length ? (
-    <CircularProgress />
+    <Typography variant="h6" align="center" className={classes.noResults}>
+      No results for that search.
+    </Typography>
   ) : (
     <Grid
       className={classes.container}

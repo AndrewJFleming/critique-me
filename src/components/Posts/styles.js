@@ -11,4 +11,8 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: "center",
   },
+  noResults: {
+    color: "#f4fbf9",
+    fontStyle: "italic",
+  },
 }));
