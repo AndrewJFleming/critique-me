@@ -23,7 +23,7 @@ const ModalOverlay = (props) => {
   const classes = useStyles();
   const content = (
     <React.Fragment>
-      <Card className="modal">
+      {/* <Card className="modal">
         <CardMedia
           size="small"
           className={classes.media}
@@ -68,7 +68,7 @@ const ModalOverlay = (props) => {
             Close
           </Button>
         </CardActions>
-      </Card>{" "}
+      </Card> */}
       <Card className="modal">
         <CardMedia
           size="small"
@@ -86,7 +86,7 @@ const ModalOverlay = (props) => {
           <Typography variant="body" color="textSecondary" gutterBottom>
             {props.desc}
           </Typography>
-          <CommentSection post={props.post} />
+          <CommentSection post={props.post} loggedInUser={props.user?.result}/>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button

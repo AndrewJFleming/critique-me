@@ -1,11 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Typography, TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
+import {Link} from 'react-router-dom'
 
 import useStyles from "./styles";
 import { commentPost } from "../../../../../actions/posts";
 
-const CommentSection = ({ post }) => {
+const CommentSection = ({ post, loggedInUser }) => {
   const classes = useStyles();
   const [comments, setComments] = useState(post?.comments);
   const [comment, setComment] = useState("");
@@ -36,7 +37,7 @@ const CommentSection = ({ post }) => {
           ))}
           <div ref={commentsRef} />
         </div>
-        <div style={{ width: "70%" }}>
+{loggedInUser ? <div style={{ width: "70%" }}>
           <Typography gutterBottom variant="h6">
             Write a Comment
           </Typography>
@@ -59,7 +60,7 @@ const CommentSection = ({ post }) => {
           >
             Comment
           </Button>
-        </div>
+        </div> : <div  style={{ width: "70%"}}><em>Please <Link to="/auth">authenticate</Link> to comment.</em></div>}
       </div>
     </div>
   );
