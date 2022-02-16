@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://critique-me.netlify.app/posts">
-    <img src="frontend\src\images\maestro, green.png" alt="Logo" height="200">
+    <img src="src\images\maestro, green.png" alt="Logo" height="200">
   </a>
 
   <h3 align="center">CritiqueMe</h3>
@@ -158,4 +158,4 @@ Andrew Fleming - [My LinkedIn](https://www.linkedin.com/in/andrew-j-fleming-web-
 
 
 
-[project-screenshot]: frontend\src\images\screenshot.png
+[project-screenshot]: src\images\screenshot.png
