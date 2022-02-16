@@ -48,7 +48,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Project Screen Shot][project-screenshot]](https://critique-me.netlify.app/posts)
   <a href="https://critique-me.netlify.app/posts">
     <img src="src\images\screenshot.png" alt="screenshot">
   </a>
