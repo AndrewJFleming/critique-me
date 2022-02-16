@@ -1,70 +1,161 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://critique-me.netlify.app/posts">
+    <img src="frontend\src\images\maestro, green.png" alt="Logo" height="200">
+  </a>
 
-## Available Scripts
+  <h3 align="center">CritiqueMe</h3>
 
-In the project directory, you can run:
+  <p align="center">
+    An art sharing app where users can post their latest work and receive comments on how to improve their skills.
+    <br />
+    <br />
+    <a href="https://critique-me.netlify.app/posts">CritiqueMe (Netlify)</a>
+    ·
+    <a href="https://www.linkedin.com/in/andrew-j-fleming-web-dev">My LinkedIn</a>
+</div>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#related-projects">Related Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![Project Screen Shot][project-screenshot]](https://critique-me.netlify.app/posts)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+CritiqueMe is an art sharing app where users can post their images to be critiqued by other registered users.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app features image upload functionality and posts can be searched by keywords in the title or by tags.
 
-### `npm run eject`
+The project uses the Material Ui library for pagination and users can authenticate using OAuth in addition to the standard Json Web Token method of authentification.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_A version of <a href="https://critique-me.netlify.app/posts">CritiqueMe</a> is hosted on Netlify._
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Built With
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* [MongoDB](https://www.mongodb.com/)
+* [Express.js](https://expressjs.com/)
+* [React.js](https://reactjs.org/)
+* [Node.js](https://nodejs.org/)
+* [Material UI](https://mui.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+<!-- GETTING STARTED -->
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Below you'll find some instructions on what you'll need to run the project locally on your machine, how to install the app and how to get the app running.
 
-### Making a Progressive Web App
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-### Advanced Configuration
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Before you run app locally, you'll need to install both the frontend and backend dependencies. 
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
 
-### `npm run build` fails to minify
+2. Navigate to the desired directory.
+   ```sh
+   cd frontend
+   ```
+   or
+   ```sh
+   cd backend
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+4. Rename the .env.example files in the frontend and backend directories to .env and replace the MongoDB URL string to the one provided by you MongoDB database.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+The frontend uses the backend to interact with this project's MongoDB database. 
+
+1. Start the backend locally.
+   ```sh
+   npm start
+   ```
+
+2. Navigate to the the backend directory and start the server with the same command.
+   ```sh
+   npm start
+   ```
+
+3. You'll need to register/signin before you can post or comment. 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+
+<!-- RELATED PROJECTS -->
+## Related Projects
+Checkout my other MERN stack projects. 
+
+1. <a href="https://github.com/AndrewJFleming/purgation-react-blog">Purgation React Blog App</a>
+
+2. <a href="https://github.com/AndrewJFleming/embossed-react-ecommerce">Embossed React Ecommerce App</a>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Andrew Fleming - [My LinkedIn](https://www.linkedin.com/in/andrew-j-fleming-web-dev) - aflemi1@gmail.com
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+[project-screenshot]: frontend\src\images\screenshot.png
