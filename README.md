@@ -157,7 +157,3 @@ Checkout my other MERN stack projects.
 Andrew Fleming - [My LinkedIn](https://www.linkedin.com/in/andrew-j-fleming-web-dev) - aflemi1@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-[project-screenshot]: frontend\src\images\screenshot.png
