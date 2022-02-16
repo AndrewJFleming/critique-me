@@ -158,4 +158,4 @@ Andrew Fleming - [My LinkedIn](https://www.linkedin.com/in/andrew-j-fleming-web-
 
 
 
-[project-screenshot]: critique-me\src\images\screenshot.png
+[project-screenshot]: src\images\screenshot.png
