@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://critique-me.netlify.app/posts">
-    <img src="src\images\maestro, green.png" alt="Logo" height="200">
+    <img src="frontend\src\images\maestro, green.png" alt="Logo" height="200">
   </a>
 
   <h3 align="center">CritiqueMe</h3>
@@ -49,7 +49,7 @@
 ## About The Project
 
   <a href="https://critique-me.netlify.app/posts">
-    <img src="src\images\screenshot.png" alt="screenshot">
+    <img src="fronted\src\images\screenshot.png" alt="screenshot">
   </a>
 
 CritiqueMe is an art sharing app where users can post their images to be critiqued by other registered users.
@@ -160,4 +160,4 @@ Andrew Fleming - [My LinkedIn](https://www.linkedin.com/in/andrew-j-fleming-web-
 
 
 
-[project-screenshot]: src\images\screenshot.png
+[project-screenshot]: frontend\src\images\screenshot.png
