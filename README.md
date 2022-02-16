@@ -49,6 +49,9 @@
 ## About The Project
 
 [![Project Screen Shot][project-screenshot]](https://critique-me.netlify.app/posts)
+  <a href="https://critique-me.netlify.app/posts">
+    <img src="src\images\screenshot.png" alt="screenshot">
+  </a>
 
 CritiqueMe is an art sharing app where users can post their images to be critiqued by other registered users.
 
